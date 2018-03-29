@@ -24,5 +24,6 @@ Installs an extention to your Chrome browser to allow Artist to get Hex color co
 
 
 Pastebin extension --- coming soon! April
+
 paste image, url or files right into the slots stored in the extension!
 retrieve, paste, clear, history logs and more!
