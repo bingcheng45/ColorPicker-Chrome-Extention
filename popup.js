@@ -18,15 +18,14 @@ changeColor.onclick = function(element) {
           {code: 'document.body.style.backgroundColor="LIGHTSALMON"'});
 };
 
+
+//Copy text to clipboard from textbox TAColor
 var copyButtonObj = document.getElementById("copyButton");
-
 copyButtonObj.onclick = function() {copyText()};
-copyButtonObj.onmouseout = function(){outFunc()};
-
 
 function copyText() {
     	  /* Get the text field */
-    	  let copyText = document.getElementById('myInput');
+    	  let copyText = document.getElementById('TAColor');
     
     	  /* Select the text field */
     	  copyText.select();
@@ -36,11 +35,30 @@ function copyText() {
     
 	  var tooltip = document.getElementById("myTooltip");
 	  tooltip.innerHTML = "Copied: " + copyText.value;
-
 }
 
-
-function outFunc() {
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copy to clipboard";
+//add # char when user have typed 6 alphanumeric values
+function textArea_keyUp(e) {
+ if (document.getElementById("TAColor").value.length == 6) {
+    document.getElementById("TAColor").value ='#' + document.getElementById("TAColor").value;
+   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('TAColor');
+    // onClick's logic below:
+    link.addEventListener('click', function() {
+        hellYeah('xxx');
+    });
+});
+document.addEventListener('keyup', textArea_keyUp, false);
+document.addEventListener('keydown', textArea_keyUp, false);
+
+
+//function validateKey(e){
+//   here can be whatever keys
+//   if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode >= 97 && e.keyCode <= 122) return false;
+//}
+
+
+

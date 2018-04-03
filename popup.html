@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">
+		<script src="JQuery3.3.1.js"></script>
 		<script src="popup.js" async></script>
 
 	</head>
@@ -13,14 +14,29 @@
 			<button id="changeColor"></button>
 		
 
-			<input type="text" id="myInput" maxlength="7" value="">
+			<input type="text" id="TAColor" value="">
 
 		
 			<!-- The button used to copy the text -->
 			<button id="copyButton" class="integration-checklist__copy-button">Copy text</button>
 		</div>
 
-
 	
+	<script>
+		// prevent user from entering more than 6 alphanumberic characters
+		var validationLength = 7;
+		$('#TAColor').on('keyup keydown change', function () {
+			if($(this).val().length > validationLength){
+				val=$(this).val().substr(0,$(this).val().length-1);
+				$(this).val(val);
+			};
+		});
+		
+		//prevent pasting more than 7
+		var textbox = document.getElementById("TAColor");
+			textbox.onpaste = function(e){
+			e.clipboardData.getData('text/plain').slice(0, 3);
+		};
+	</script>
 	</body>
 </html>
