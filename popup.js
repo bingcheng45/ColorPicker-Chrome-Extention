@@ -47,36 +47,50 @@ $(document).ready(function()
 });
 
 //add # char when user have typed 6 alphanumeric values
-function textArea_keyUp(e) {
-	if (document.getElementById("TAColor").value.length == 6) {
-		document.getElementById("TAColor").value = '#' + document.getElementById("TAColor").value;
-	}
-}
+//function textArea_keyUp(e) {
+//	if (document.getElementById("TAColor").value.length == 6) {
+//		document.getElementById("TAColor").value = '#' + document.getElementById("TAColor").value;
+//	}
+//}
 
-document.addEventListener('DOMContentLoaded', function() {
-	var link = document.getElementById('TAColor');
-	// onClick's logic below:
-	document.addEventListener('keyup', textArea_keyUp, false);
-	document.addEventListener('keydown', textArea_keyUp, false);
-});
+//document.addEventListener('DOMContentLoaded', function() {
+///	var link = document.getElementById('TAColor');
+//	// onClick's logic below:
+//	document.addEventListener('keyup', textArea_keyUp, false);
+//	document.addEventListener('keydown', textArea_keyUp, false);
+//});
 
 
 // prevent user from entering more than 6 alphanumberic characters
 var validationLength = 7;
 $('#TAColor').on('keyup keydown change', function() {
-	if ($(this).val().length > validationLength) {
-		val = $(this).val().substr(0, $(this).val().length - 1);
-		$(this).val(val);
-	};
+
+	
+	var userInput = document.getElementById("TAColor").value;
+	console.log(userInput);
+
+	//check if # exist at first char, else append to first 6 char
+	//if '#' is not inside the text and userInput length is more than 0, append # in front
+	if(userInput.indexOf("#") < 0 && userInput.length > 0){
+		userInput = "#" + userInput;
+	}
+
+	//Ensure text would not exceed 7 characteres, either from typing or pasted
+	if (userInput.length > validationLength) {
+		userInput = userInput.substr(0, validationLength);
+	}
+
+	//Set textbox value to modified values
+	document.getElementById("TAColor").value = userInput;
 });
 
 
 
 //prevent pasting more than 7
-var textbox = document.getElementById("TAColor");
-textbox.onpaste = function(e) {
-	e.clipboardData.getData('text/plain').slice(0, 3);
-};
+//var textbox = document.getElementById("TAColor");
+//textbox.onpaste = function(e) {
+//	e.clipboardData.getData('text/plain').slice(0, 3);
+//};
 
 
 
