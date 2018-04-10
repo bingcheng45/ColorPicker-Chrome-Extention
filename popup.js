@@ -36,8 +36,6 @@ function copyText() {
 	/* Copy the text inside the text field */
 	document.execCommand("Copy");
 
-	var tooltip = document.getElementById("myTooltip");
-	tooltip.innerHTML = "Copied: " + copyText.value;
 }
 
 //test maxlength put here for chrome extension to work but not for website
