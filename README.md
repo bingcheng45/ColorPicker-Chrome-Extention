@@ -20,6 +20,7 @@ Installs an extention to your Chrome browser to allow Artist to get Hex color co
 
 
 
+Ignore me: http://colorify.rocks/ 
 
 
 
